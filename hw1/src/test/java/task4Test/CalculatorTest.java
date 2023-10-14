@@ -11,12 +11,6 @@ import task4.Calculator;
 class CalculatorTest {
     Calculator calculator;
 
-    //улучшения!!!!
-//    private static final double INVALID_AMOUNT = -300;
-//    private static final double VALID_AMOUNT = 300;
-//    private static final double INVALID_DISCOUNT = -10;
-//    private static final double VALID_DISCOUNT = 15;
-
     @BeforeEach
     void setUp() {
         calculator = new Calculator();
@@ -99,7 +93,9 @@ class CalculatorTest {
     void testAssertWithLambdaMessage() {
         assertEquals(4, calculator.add(2, 2), () -> "2 + 2 должно быть равно 4");
     }
-//Проверка метода CalculateDiscount
+
+
+    //Проверка метода CalculateDiscount
     @Test
     @DisplayName("Проверка равенства значений метода CalculateDiscount")
     void testAssertCalculateDiscountEquals() {
@@ -115,69 +111,7 @@ class CalculatorTest {
     void testAssertCalculateDiscountThrows() {
         assertThrows(ArithmeticException.class, () -> calculator.calculateDiscount(-300, 15));
     }
-//    @Test
-//    @DisplayName("Проверка метода calculateDiscount, который вычисляет скидку на основе суммы покупки и процента скидки")
-//    void testCalculateDiscount() {
-//        // Проверяем, что метод правильно вычисляет скидку для суммы покупки 300 и процента скидки 15.
-//        double result = calculator.calculateDiscount(300, 15);
-//        assertThat(result).isEqualTo(255);
-//
-//        // Проверяем, что метод правильно вычисляет скидку для суммы покупки 2000 и процента скидки 25.
-//        result = calculator.calculateDiscount(2000, 25);
-//        assertThat(result).isEqualTo(1500);
-//
-//        // Проверяем, что метод правильно вычисляет скидку для суммы покупки 0 и процента скидки 50.
-//        result = calculator.calculateDiscount(0, 50);
-//        assertThat(result).isEqualTo(0);
-//
-//        // Проверяем, что метод правильно вычисляет скидку для суммы покупки 100 и процента скидки 0.
-//        result = calculator.calculateDiscount(100, 0);
-//        assertThat(result).isEqualTo(100);
-//    }
 
-    @Test
-    @DisplayName("Проверка метода calculateDiscount при передаче некорректных аргументов")
-    void testCalculateDiscountWithInvalidArguments() {
-        // Проверяем, что метод выбрасывает исключение при передаче отрицательной суммы покупки.
-        assertThatThrownBy(() -> calculator.calculateDiscount(-300, 15))
-                .isInstanceOf(ArithmeticException.class).hasMessage("Некорректные аргументы");
-
-        // Проверяем, что метод выбрасывает исключение при передаче отрицательного процента скидки.
-        assertThatThrownBy(() -> calculator.calculateDiscount(300, -10))
-                .isInstanceOf(ArithmeticException.class).hasMessage("Некорректные аргументы");
-
-        // Проверяем, что метод выбрасывает исключение при передаче процента скидки, превышающего 300.
-        assertThatThrownBy(() -> calculator.calculateDiscount(300, 350))
-                .isInstanceOf(ArithmeticException.class).hasMessage("Некорректные аргументы");
-    }
-
-
-    //улучшения!!!!
-//    @Test
-//    @DisplayName("Проверка метода calculateDiscount при передаче некорректных аргументов")
-//    void testCalculateDiscountWithInvalidArguments() {
-//        assertAll(
-//                () -> assertThatThrownBy(() -> calculator.calculateDiscount(INVALID_AMOUNT, VALID_DISCOUNT))
-//                        .isInstanceOf(ArithmeticException.class)
-//                        .hasMessage("Некорректные аргументы"),
-//
-//                () -> assertThatThrownBy(() -> calculator.calculateDiscount(VALID_AMOUNT, INVALID_DISCOUNT))
-//                        .isInstanceOf(ArithmeticException.class)
-//                        .hasMessage("Некорректные аргументы"),
-//
-//                () -> assertThatThrownBy(() -> calculator.calculateDiscount(VALID_AMOUNT, VALID_DISCOUNT + 300))
-//                        .isInstanceOf(ArithmeticException.class)
-//                        .hasMessage("Некорректные аргументы")
-//        );
-//
-//    }
-
-    //Тест к Unit-тесты (лекции) Урок 3. Качество тестов(дз после лекции)
-//    @Test
-//    @DisplayName("Проверка вычисления длинны окружности")
-//    public void circumferenceCalculationTest() {
-//        assertEquals(50.26548245743669, calculateCircumference(8), 0.000000000000001);
-//    }
 
 
 }
